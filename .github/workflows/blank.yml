@@ -35,7 +35,7 @@ jobs:
 
       - name: Run Copilot CLI command
         run: |
-          copilot -p "Analyze the contents of @cert_report.txt it contains a list of certificate statuses. If any certificate have warnings or errors, detail the issue so I can create a GitHub issue manually. Do not provide reasoning or summary, just the body text of the issue. > cert_reviewed_summary.txt
+          copilot -p "Analyze the contents of @cert_report.txt it contains a list of certificate statuses. If any certificate have warnings or errors, detail the issue so I can create a GitHub issue manually. Do not provide reasoning or summary, just the body text of the issue." > cert_reviewed_summary.txt
         env:
           COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
 
