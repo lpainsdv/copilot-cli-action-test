@@ -5,6 +5,9 @@ name: CopilotJob
 on:
   workflow_dispatch:
 
+permissions: 
+  issues: write
+
 jobs:
   copilot-job:
     runs-on: ubuntu-latest
@@ -32,7 +35,7 @@ jobs:
 
       - name: Run Copilot CLI command
         run: |
-          copilot -p "Generate a summary of the certificate check report in @cert_report.txt" > cert_reviewed_summary.txt
+          copilot -p "Analyze the contents of @cert_report.txt it contains a list of certificate statuses. If any certificate have warnings or errors, detail the issue so I can create a GitHub issue manually. Do not provide reasoning or summary, just the body text of the issue. > cert_reviewed_summary.txt
         env:
           COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
 
